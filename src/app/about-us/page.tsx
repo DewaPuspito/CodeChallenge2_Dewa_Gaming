@@ -1,6 +1,5 @@
 import React from "react";
 import AboutUs from "@/components/molecules/about.us.module";
-
 import Navbar from "@/components/atomics/navbar.module";
 
 export default function AboutUsPage() {
