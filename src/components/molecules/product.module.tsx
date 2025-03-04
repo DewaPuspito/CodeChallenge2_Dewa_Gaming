@@ -15,7 +15,7 @@ export default function ProductMenu() {
     async function getAllProducts() {
       setIsLoading(true);
       try {
-        const response = await axiosInstance.get("/products?pageSize=100");
+        const response = await axiosInstance.get("/products?pageSize=20");
           setProduct(response.data);
   
           const uniqueGenres: string[] = [];
@@ -58,7 +58,8 @@ export default function ProductMenu() {
     }
 
     return (
-        <div className='w-full h-full p-3 mt-16'>
+        <div className='w-full h-full p-3 mt-10'>
+            <h2 className='flex justify-center text-3xl items-center font-bold mb-10'> Our Products </h2>
             <div className='flex justify-between mb-4'>
                 <input
                     type='text'
@@ -78,7 +79,7 @@ export default function ProductMenu() {
                             <option key={key} value={item}>{item}</option>
                         ))
                     }
-                </select>
+                </select>   
             </div>
             {
                 isLoading === false ?

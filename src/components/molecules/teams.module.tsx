@@ -3,17 +3,17 @@ import React, { useEffect, useState } from 'react'
 import { axiosInstance } from '@/utils/api/product.teams.api'
 import TeamsCard, {TCard} from '../atomics/teams.card.module'
 
-export default function ListProduct() {
-    const [product, setProduct] = useState<TCard[]>([])
+export default function ListTeams() {
+    const [teams, setTeams] = useState<TCard[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    async function getAllProducts() {
+    async function getAllTeams() {
       setIsLoading(true);
       try {
         const response = await axiosInstance.get("/teams");
-          setProduct(response.data);
+          setTeams(response.data);
       } catch (error) {
-          console.error("Error fetching products:", error);
+          console.error("Error fetching teams data:", error);
           alert("Maaf data tidak bisa diambil. Silakan cek sumber data");
       } finally {
           setIsLoading(false);
@@ -21,17 +21,18 @@ export default function ListProduct() {
   }
   
     useEffect(() => {
-        getAllProducts()
+        getAllTeams()
     }, [])
 
     return (
-        <div className='w-full h-full p-3 mt-16'>
+        <div className='w-full h-full p-3 mt-10'>
+        <h2 className='flex justify-center text-3xl items-center font-bold mb-10'> Our Teams </h2>
             {
                 isLoading === false ?
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center items-center w-full'>
                         {
-                            product.length > 0 ? (
-                                product.map((item: TCard, key: number) => (
+                            teams.length > 0 ? (
+                                teams.map((item: TCard, key: number) => (
                                     <TeamsCard
                                         key={key}
                                         name={item?.name}
