@@ -58,18 +58,18 @@ export default function ProductMenu() {
     }
 
     return (
-        <div className='w-full h-full p-3 mt-10'>
-            <h2 className='flex justify-center text-3xl items-center font-bold mb-10'> Our Products </h2>
+        <div className='w-full   min-h-screen p-3' style={{ backgroundImage: `url('/red.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <h2 className='flex justify-center text-3xl text-white items-center font-bold mt-5 mb-10'> Produk Kami </h2>
             <div className='flex justify-between mb-4'>
                 <input
                     type='text'
                     placeholder='Search products...'
-                    className='border p-2 rounded-md w-1/3'
+                    className='border p-2 rounded-md w-1/3 bg-white text-black'
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />
                 <select
-                    className='border p-2 rounded-md w-1/4'
+                    className='border p-2 rounded-md w-1/3 bg-white text-black'
                     value={selectedGenre}
                     onChange={handleGenreChange}
                 >
@@ -98,12 +98,14 @@ export default function ProductMenu() {
                                     />
                                 ))
                             ) : (
-                                <p className="col-span-3 text-center text-gray-500">No products found.</p>
+                                <div className="col-span-6 flex justify-center items-center min-h-[50vh]">
+                                    <p className="text-center text-white">No products found</p>
+                                </div>
                             )
                         }
                     </div> :
                     <div className='w-screen h-screen text-black font-bold text-2xl justify-center items-center mx-auto my-auto'>
-                        <h2>Loading...</h2>
+                        <h2 className='col-span-3 justify-center text-center text-white'>Loading Content...</h2>
                     </div>
             }
         </div>
