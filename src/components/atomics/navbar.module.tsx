@@ -10,7 +10,7 @@ export default function Navbar() {
         router.push(pathname)
     }
     return (
-        <nav className="w-screen h-20 bg-red-500 p-5 flex fixed top-0 gap-5 justify-between items-center text-white text-semibold">
+        <nav className="w-screen h-20 bg-red-500 p-5 flex fixed top-0 gap-5 justify-between items-center text-white text-semibold z-10">
             <div className="my-3">
                 <span className="font-semibold text-lg" onClick={() => navigate('/')}>
                     <img src="/Logo.png" alt="Company Logo" width={150} height={48}/>

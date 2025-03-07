@@ -37,11 +37,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Warna hitam transparan */
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
 .bg-container > * {
   position: relative;
-  z-index: 2; /* Biar kontennya nggak kena efek gelap */
+  z-index: 2;
 }

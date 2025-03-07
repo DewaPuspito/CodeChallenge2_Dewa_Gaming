@@ -6,19 +6,16 @@ import { axiosInstance } from '@/utils/api/product.teams.api'
 export default function AboutUs() {
 
   const [teams, setTeams] = useState<ACard[]>([])
-      const [isLoading, setIsLoading] = useState<boolean>(false)
   
       async function getAllTeams() {
-        setIsLoading(true);
+
         try {
           const response = await axiosInstance.get("/teams");
             setTeams(response.data);
         } catch (error) {
             console.error("Error fetching teams data:", error);
             alert("Maaf data tidak bisa diambil. Silakan cek sumber data");
-        } finally {
-            setIsLoading(false);
-        }
+        } 
     }
     
       useEffect(() => {
@@ -66,13 +63,13 @@ export default function AboutUs() {
               </div>
             </div>
 
-            <div  className='w-full h-full flex flex-col p-10 text-center text-white'>
+            <div className='w-full h-full flex flex-col p-10 text-center text-white'>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-10">
             <div>
               <img
-                src=""
+                src="/culture.jpg"
                 alt="DewaGaming Store"
-                className="w-full rounded-lg shadow-lg"
+                className="w-full h-135 rounded-lg shadow-lg"
               />
             </div>
             <div>
