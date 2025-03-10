@@ -20,18 +20,18 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 .bg-container {
-  background-image: url('/red.jpg');
+  background-image: url("/red.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
 .bg-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;

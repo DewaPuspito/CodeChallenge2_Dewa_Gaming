@@ -6,11 +6,11 @@ import Footer from "@/components/atomics/footer.module";
 export default function OurTeams() {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="pt-20 flex justify-center items-center min-h-screen bg-gray-100">
-        <Teams/>
+        <Teams />
       </div>
-    <Footer/>
+      <Footer />
     </>
   );
 }
