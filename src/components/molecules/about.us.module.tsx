@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { useRouter } from 'next/navigation'
 import AboutCard, {ACard} from '../atomics/about.us.card.module'
 import { axiosInstance } from '@/utils/api/product.teams.api'
+import Image from 'next/image'
 
 export default function AboutUs() {
 
@@ -33,9 +34,11 @@ export default function AboutUs() {
             <div  className='w-full h-full flex flex-col p-10 text-center text-white'>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-10">
             <div>
-              <img
+              <Image
                 src="/game-store.jpg"
                 alt="DewaGaming Store"
+                width={1770} 
+                height={643} 
                 className="w-full rounded-lg shadow-lg"
               />
             </div>
@@ -79,9 +82,11 @@ export default function AboutUs() {
             <div className='w-full h-full flex flex-col p-10 text-center text-white'>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-10">
             <div>
-              <img
+              <Image
                 src="/culture.jpg"
                 alt="DewaGaming Store"
+                width={1920} 
+                height={1020}
                 className="w-full h-190 rounded-lg shadow-lg"
               />
             </div>

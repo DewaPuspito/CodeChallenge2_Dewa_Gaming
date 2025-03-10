@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Testimonials, { HCard } from '@/components/atomics/testimonials.card.module'
 import { axiosInstance } from '@/utils/api/product.teams.api'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import Navbar from '@/components/atomics/navbar.module'
 import Footer from '@/components/atomics/footer.module'
 
@@ -52,7 +53,13 @@ export default function Landing() {
             <div className="mt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 w-full max-w-[1000px] mx-auto">
               {['pc-logo', 'playstation-logo', 'psp-logo', 'nintendo-logo', 'xbox-logo', 'wii-logo'].map((logo, index) => (
                 <div key={index} className="flex justify-center items-center">
-                  <img src={`/${logo}.png`} alt={logo} className="w-16 h-16 md:w-32 md:h-32 object-contain mx-auto" />
+                  <Image 
+                    src={`/${logo}.png`} 
+                    alt={logo} 
+                    width={128} 
+                    height={128} 
+                    className="w-16 h-16 md:w-32 md:h-32 object-contain mx-auto" 
+                  />
                 </div>
               ))}
             </div>

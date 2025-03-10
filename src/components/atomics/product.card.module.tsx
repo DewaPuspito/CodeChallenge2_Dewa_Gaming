@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export interface PCard {
     game_name: string;
     genre: string;
@@ -10,13 +12,12 @@ export interface PCard {
 export default function ProductCard({ game_name, genre, console, imageURL, description, price }: PCard) {
     return (
         <div className="bg-white shadow-lg rounded-lg overflow-hidden h-full flex flex-col">
-            <img 
-                src={imageURL ? imageURL : 'https://i.pinimg.com/736x/2a/86/a5/2a86a560f0559704310d98fc32bd3d32.jpg'} 
-                alt={game_name} 
-                width={320} 
-                height={200} 
+            <Image
+                src={imageURL ? imageURL : "https://i.pinimg.com/736x/2a/86/a5/2a86a560f0559704310d98fc32bd3d32.jpg"}
+                alt={game_name}
+                width={320}
+                height={200}
                 className="w-full h-48 object-cover object-center"
-
             />
             <div className="p-4">
                 <h2 className="text-lg font-semibold text-gray-900">{game_name}</h2>

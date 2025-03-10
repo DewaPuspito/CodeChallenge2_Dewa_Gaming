@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export interface TCard {
     name: string;
     role: string;
@@ -8,7 +10,7 @@ export interface TCard {
 export default function TeamsCard({ name, role, contact, imageURL }: TCard) {
     return (
         <div className="bg-white shadow-lg rounded-lg overflow-hidden h-full flex flex-col items-center text-center p-6">
-            <img 
+            <Image 
                 src={imageURL ? imageURL : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} 
                 alt={name} 
                 width={64} 

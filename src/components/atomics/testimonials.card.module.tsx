@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export interface HCard {
   username: string,
   game_bought: { objectId: string; game_name: string }[],
@@ -8,7 +10,7 @@ export interface HCard {
 export default function Testimonials({username, game_bought, review, userImage}: HCard) {
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden h-full flex flex-col items-center text-center p-6">
-        <img 
+        <Image 
             src={userImage ? userImage : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} 
             alt={username} 
             width={64} 
