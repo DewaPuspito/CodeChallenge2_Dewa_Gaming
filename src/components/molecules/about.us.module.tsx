@@ -1,11 +1,13 @@
 'use client'
 import {useState, useEffect} from 'react'
+import { useRouter } from 'next/navigation'
 import AboutCard, {ACard} from '../atomics/about.us.card.module'
 import { axiosInstance } from '@/utils/api/product.teams.api'
 
 export default function AboutUs() {
 
   const [teams, setTeams] = useState<ACard[]>([])
+  const router = useRouter()
   
       async function getAllTeams() {
         try {
@@ -20,6 +22,10 @@ export default function AboutUs() {
       useEffect(() => {
           getAllTeams()
       }, [])
+
+      function navigate(pathname: string) {
+        router.push(pathname)
+      }
   
   return (
     <div className='bg-container w-full h-full flex flex-col gap-y-5 justify-center items-center p-10 pt-20'>
@@ -60,6 +66,14 @@ export default function AboutUs() {
                       )
                   }
               </div>
+              <div className="text-center mt-10">
+                <button 
+                  className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition duration-300"
+                  onClick={() => navigate('/teams')}
+                >
+                Dapatkan Kontak
+                </button>
+        </div>
             </div>
 
             <div className='w-full h-full flex flex-col p-10 text-center text-white'>
@@ -71,6 +85,7 @@ export default function AboutUs() {
                 className="w-full h-190 rounded-lg shadow-lg"
               />
             </div>
+            
             <div>
               <h2 className="text-3xl font-bold text-white mb-4">Budaya Perusahaan</h2>
               <p className="text-justify text-white mb-10">

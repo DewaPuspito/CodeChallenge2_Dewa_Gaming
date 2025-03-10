@@ -46,7 +46,7 @@ export default function ListTeams() {
                         }
                     </div> :
                     <div className='w-screen h-screen text-black font-bold text-2xl justify-center items-center mx-auto my-auto'>
-                        <h2>Loading...</h2>
+                        <h2 className='col-span-3 justify-center text-center text-white'>Loading Content...</h2>
                     </div>
             }
         </div>
