@@ -4,7 +4,6 @@ import { axiosInstance } from '@/utils/api/product.teams.api'
 import ProductCard, { PCard } from '../atomics/product.card.module'
 
 export default function ProductMenu() {
-    const [product, setProduct] = useState<PCard[]>([])
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedGenre, setSelectedGenre] = useState('All Genres');
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -16,8 +15,6 @@ export default function ProductMenu() {
         setIsLoading(true);
         try {
             const response = await axiosInstance.get("/products?pageSize=20");
-            setProduct(response.data);
-
             const uniqueGenres: string[] = [];
             response.data.forEach((item: PCard) => {
                 if (!uniqueGenres.includes(item.genre)) {
