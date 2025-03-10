@@ -49,7 +49,7 @@ export default function AboutUs() {
               Bermula dari sebuah toko kecil di kota Jakarta, DewaGaming hadir untuk memenuhi kebutuhan gaming yang semakin berkembang pesat seiring dengan meningkatnya popularitas industri game.
               Dengan pelayanan pelanggan yang ramah dan responsif, DewaGaming berhasil membangun reputasi sebagai toko game terpercaya di komunitas gaming lokal.
               Pada tahun 2019, DewaGaming mulai memperluas jangkauan bisnisnya ke ranah online melalui platform e-commerce, memungkinkan pelanggan dari seluruh Indonesia untuk mendapatkan produk gaming favorit mereka secara lebih mudah. 
-              Hingga saat ini, DewaGaming terus berinovasi dengan menghadirkan berbagai penawaran menarik, seperti promo diskon, layanan garansi, dan komunitas gamer online yang aktif. Dengan slogan "Your Ultimate Gaming Partner", DewaGaming berkomitmen untuk terus mendukung perjalanan gaming para pelanggannya dengan produk dan layanan terbaik.
+              Hingga saat ini, DewaGaming terus berinovasi dengan menghadirkan berbagai penawaran menarik, seperti promo diskon, layanan garansi, dan komunitas gamer online yang aktif. Dengan slogan &quot;Your Ultimate Gaming Partner&quot;, DewaGaming berkomitmen untuk terus mendukung perjalanan gaming para pelanggannya dengan produk dan layanan terbaik.
               </p>
             </div>
             </div>

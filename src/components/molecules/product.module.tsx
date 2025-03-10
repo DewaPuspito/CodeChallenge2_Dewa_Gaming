@@ -1,7 +1,7 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { axiosInstance } from '@/utils/api/product.teams.api'
-import ProductCard, {PCard} from '../atomics/product.card.module'
+import ProductCard, { PCard } from '../atomics/product.card.module'
 
 export default function ProductMenu() {
     const [product, setProduct] = useState<PCard[]>([])
@@ -12,42 +12,42 @@ export default function ProductMenu() {
     const [filteredProducts, setFilteredProduct] = useState<PCard[]>([])
     const [genres, setGenres] = useState<string[]>([])
 
-    async function getAllProducts() {
-      setIsLoading(true);
-      try {
-        const response = await axiosInstance.get("/products?pageSize=20");
-          setProduct(response.data);
-  
-          const uniqueGenres: string[] = [];
-          response.data.forEach((item: PCard) => {
-              if (!uniqueGenres.includes(item.genre)) {
-                  uniqueGenres.push(item.genre);
-              }
-          });
-          setGenres(uniqueGenres);
-  
-          let filtered = response.data;
-          if (searchTerm) {
-              filtered = filtered.filter((item: PCard) =>
-                  item.game_name.toLowerCase().includes(searchTerm.toLowerCase())
-              );
-          }
-  
-          if (selectedGenre !== 'All Genres') {
-              filtered = filtered.filter((item: PCard) => item.genre === selectedGenre);
-          }
-          setFilteredProduct(filtered);
-      } catch (error) {
-          console.error("Error fetching products:", error);
-          alert("Maaf data tidak bisa diambil. Silakan cek sumber data");
-      } finally {
-          setIsLoading(false);
-      }
-  }
-  
+    const getAllProducts = useCallback(async () => {
+        setIsLoading(true);
+        try {
+            const response = await axiosInstance.get("/products?pageSize=20");
+            setProduct(response.data);
+
+            const uniqueGenres: string[] = [];
+            response.data.forEach((item: PCard) => {
+                if (!uniqueGenres.includes(item.genre)) {
+                    uniqueGenres.push(item.genre);
+                }
+            });
+            setGenres(uniqueGenres);
+
+            let filtered = response.data;
+            if (searchTerm) {
+                filtered = filtered.filter((item: PCard) =>
+                    item.game_name.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
+
+            if (selectedGenre !== 'All Genres') {
+                filtered = filtered.filter((item: PCard) => item.genre === selectedGenre);
+            }
+            setFilteredProduct(filtered);
+        } catch (error) {
+            console.error("Error fetching products:", error);
+            alert("Maaf data tidak bisa diambil. Silakan cek sumber data");
+        } finally {
+            setIsLoading(false);
+        }
+    }, [searchTerm, selectedGenre]);
+
     useEffect(() => {
-        getAllProducts()
-    }, [searchTerm, selectedGenre])
+        getAllProducts();
+    }, [getAllProducts]);
 
     function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
         setSearchTerm(event.target.value);
@@ -58,7 +58,7 @@ export default function ProductMenu() {
     }
 
     return (
-        <div className='w-full   min-h-screen p-3' style={{ backgroundImage: `url('/red.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className='w-full min-h-screen p-3' style={{ backgroundImage: `url('/red.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <h2 className='flex justify-center text-3xl text-white items-center font-bold mt-5 mb-10'> Produk Kami </h2>
             <div className='flex justify-between mb-4'>
                 <input
@@ -82,8 +82,8 @@ export default function ProductMenu() {
                 </select>   
             </div>
             {
-                isLoading === false ?
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center items-center w-full'>
+                isLoading === false ? (
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center items-center w-full'>
                         {
                             filteredProducts.length > 0 ? (
                                 filteredProducts.map((item: PCard, key: number) => (
@@ -103,10 +103,12 @@ export default function ProductMenu() {
                                 </div>
                             )
                         }
-                    </div> :
+                    </div>
+                ) : (
                     <div className='w-screen h-screen text-black font-bold text-2xl justify-center items-center mx-auto my-auto'>
                         <h2 className='col-span-3 justify-center text-center text-white'>Loading Content...</h2>
                     </div>
+                )
             }
         </div>
     )
