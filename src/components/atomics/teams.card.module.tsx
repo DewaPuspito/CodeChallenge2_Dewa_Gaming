@@ -7,13 +7,13 @@ export interface TCard {
 
 export default function TeamsCard({ name, role, contact, imageURL }: TCard) {
     return (
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden h-full flex flex-col">
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden h-full flex flex-col items-center text-center p-6">
             <img 
                 src={imageURL ? imageURL : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} 
                 alt={name} 
-                width={320} 
-                height={200} 
-                className="w-full h-48 object-cover object-center"
+                width={64} 
+                height={64} 
+                className="w-30 h-30 rounded-full object-cover border-4 border-gray-300 mb-4"
 
             />
             <div className="p-4">

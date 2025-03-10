@@ -8,7 +8,6 @@ export default function AboutUs() {
   const [teams, setTeams] = useState<ACard[]>([])
   
       async function getAllTeams() {
-
         try {
           const response = await axiosInstance.get("/teams");
             setTeams(response.data);
@@ -69,7 +68,7 @@ export default function AboutUs() {
               <img
                 src="/culture.jpg"
                 alt="DewaGaming Store"
-                className="w-full h-135 rounded-lg shadow-lg"
+                className="w-full h-190 rounded-lg shadow-lg"
               />
             </div>
             <div>
@@ -107,6 +106,21 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
+              <div>
+                  <h3 className="text-lg font-bold text-white">Nilai Perusahaan</h3>
+                  <p className="text-white text-justify items-start">
+                  - Integritas: Menjaga kepercayaan pelanggan dengan layanan yang transparan dan jujur.
+                  </p>
+                  <p className="text-white text-justify items-start">
+                  - Inovasi: Terus berinovasi untuk memenuhi kebutuhan gamer masa kini.
+                  </p>
+                  <p className="text-white text-justify items-start">
+                  - Komunitas: Membangun hubungan erat dengan komunitas gamer.
+                  </p>
+                  <p className="text-white text-justify items-start">
+                  - Kualitas: Menyediakan produk berkualitas tinggi untuk meningkatkan pengalaman bermain game.
+                  </p>
+                </div>
             </div>
             </div>
             </div>

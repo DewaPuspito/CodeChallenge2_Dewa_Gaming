@@ -1,12 +1,36 @@
 'use client'
 import React from 'react'
+import { useState, useEffect } from 'react'
+import Testimonials, { HCard } from '@/components/atomics/testimonials.card.module'
+import { axiosInstance } from '@/utils/api/product.teams.api'
 import { useRouter } from 'next/navigation'
 import Navbar from '@/components/atomics/navbar.module'
 import Footer from '@/components/atomics/footer.module'
 
 export default function Landing() {
 
+  const [testimonials, setTestimonials] = useState<HCard[]>([])
   const router = useRouter()
+
+  async function getAllTestimonials() {
+    try {
+      const response = await axiosInstance.get("/testimonials", {
+        params: { loadRelations: "game_bought" },
+      });
+      console.log("Fetched Testimonials:", response.data);
+      setTestimonials(response.data);
+    } catch (error) {
+      console.error("Error fetching testimonials:", error);
+      alert("Maaf data tidak bisa diambil. Silakan cek sumber data");
+    }
+  }
+
+  useEffect(() => {
+      getAllTestimonials()
+  }, [])
+
+  useEffect(() => {
+  }, [testimonials]);
 
   function navigate(pathname: string) {
     router.push(pathname)
@@ -75,7 +99,20 @@ export default function Landing() {
       
         <div className='relative py-12 px-4 md:py-20'>
           <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-6">Apa Kata Mereka?</h2>
-          
+              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center items-center w-full'>
+                {(
+                      testimonials.map((item: HCard, key: number) => (
+                        <Testimonials
+                            key={key}
+                            username={item?.username}
+                            game_bought={item?.game_bought}
+                            review={item?.review}
+                            userImage={item?.userImage}
+                        />
+                      ))
+                    )
+                }
+            </div>
         </div>
 
       </div>
