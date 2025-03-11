@@ -41,17 +41,15 @@ export default function Landing() {
     <>
       <Navbar />
       <div className="bg-container w-screen min-h-screen bg-white flex flex-col items-center">
+        <main className="pt-20">
         <section
-          className="relative h-screen w-full bg-cover bg-center"
+         className="relative w-screen min-h-screen bg-cover bg-center"
           style={{ backgroundImage: "url('/homepage.avif')" }}
         >
           <div className="absolute inset-0 bg-opacity-80 backdrop-brightness-50 flex flex-col justify-center items-center text-white text-center px-4">
             <h1 className="text-3xl md:text-4xl font-bold mb-10">
               Selamat Datang di DewaGaming
             </h1>
-            <h2 className="text-xl md:text-2xl mb-10">
-              Your Ultimate Gaming Partner
-            </h2>
             <p className="mt-4 text-base md:text-lg text-justify text-white max-w-[800px]">
               DewaGaming Gameshop adalah destinasi utama bagi para gamer yang
               mencari pengalaman belanja game terbaik. Berdiri sejak tahun 2015,
@@ -80,6 +78,7 @@ export default function Landing() {
             </div>
           </div>
         </section>
+        </main>
 
         <div className="relative py-12 px-4 md:py-20">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-6">
@@ -134,7 +133,7 @@ export default function Landing() {
         </div>
 
         <div className="relative py-12 px-4 md:py-20">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-10">
             Apa Kata Mereka?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center items-center w-full">

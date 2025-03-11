@@ -57,14 +57,7 @@ export default function ProductMenu() {
   }
 
   return (
-    <div
-      className="w-full min-h-screen p-3"
-      style={{
-        backgroundImage: `url('/red.jpg')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="bg-container w-full min-h-screen p-3">
       <h2 className="flex justify-center text-3xl text-white items-center font-bold mt-5 mb-10">
         {" "}
         Produk Kami{" "}
