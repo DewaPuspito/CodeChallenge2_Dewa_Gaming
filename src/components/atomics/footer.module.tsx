@@ -3,7 +3,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-red-500 text-white p-4 text-center w-full h-20 flex justify-center items-center">
-      &copy; {currentYear} Dewa Gaming. All rights reserved.
+      &copy; {currentYear} Dewa Gaming. Your Ultimate Gaming Partner.
     </footer>
   );
 }
